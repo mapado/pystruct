@@ -1,6 +1,10 @@
 from setuptools import setup
 from setuptools.extension import Extension
-import numpy as np
+
+try:
+    import numpy as np
+except Exception:
+    pass
 
 import os
 
@@ -9,7 +13,7 @@ if os.path.exists('MANIFEST'):
 
 setup(name="pystruct",
       version="0.2.3",
-      install_requires=["ad3"],
+      install_requires=["ad3", "cvopt", "numpy"],
       packages=['pystruct', 'pystruct.learners', 'pystruct.inference',
                 'pystruct.models', 'pystruct.utils', 'pystruct.datasets',
                 'pystruct.tests', 'pystruct.tests.test_learners',
